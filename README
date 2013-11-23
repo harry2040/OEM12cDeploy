@@ -1,0 +1,12 @@
+Oracle Enterprise Manager has a cool feature that allows mass deployment of agents across multiple hosts. It has certain limitations ; for instance it cannot use dynamic paths for ORACLE_HOME locations.
+For deployment of 5 servers you might spend about 5 x 20mins =100mins. But imagine for 600 servers that is 200 hours.
+So here is a wrapper script that will login to every server create a designated ORACLE_HOME two levels below the ORACLE_HOME of the database and then install the OEM agent on the server. It creates a sumfile(Summary file)
+It also does some cool things like strip out the OEM 10g agent details from the inventory so that pre-requisites dont fail.
+Im sure there are plenty of tweaks and improvements that can be done. Love to hear your thoughts. 
+
+Steps
+1. Create named credentials - use a pattern to identify your passwords
+2. Create encrypted passwords in a new file
+3. Build a list of servers where you want to install
+4. Run the script in nohup where emcli is installed
+
